@@ -1,0 +1,44 @@
+﻿@using VegetableShop.Api.Dto.Page;
+@using VegetableShop.Mvc.Models.Page;
+@model PaginationResult<VegetableShop.Mvc.Models.User.UserViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    Pager pager = ViewBag.Pager;
+}
+<script src="~/js/jquery-1.11.1.min.js"></script>
+<br />
+<h3 class="page-header text-center">USERS LIST</h3>
+
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-6">
+            <form style="text-decoration:none" asp-action="Revoke"
+                  onsubmit="return jQueryDelete('#viewAll',this,'Are you sure to revoke all record ?','Revoke all')">
+                <button type="submit" class="btn btn-danger">
+                    <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                    Revoke All
+                </button>
+                    <select id="filter" onchange="location.href=this.value">
+                        <option value="0">Sort User List</option>
+                        <option value="https://localhost:7230/admin/user/index?sortExpression=email&sortOrder=0">Email Ascending</option>
+                        <option value="https://localhost:7230/admin/user/index?sortExpression=email&sortOrder=1">Email Descending</option>
+                        <option value="https://localhost:7230/admin/user/index?sortExpression=username&sortOrder=0">Username Ascending</option>
+                        <option value="https://localhost:7230/admin/user/index?sortExpression=username&sortOrder=1">Username Descending</option>
+                    </select>
+            </form>
+        </div>
+        <div class="col-md-6">
+            @await Html.PartialAsync("_TopBarPartialView",pager)
+        </div>
+    </div>
+    <div class="col-md-12" id="viewAll">
+        @await Html.PartialAsync("_IndexPartialView",Model)
+    </div>
+    <div class="row">
+        <div class="col-12">
+            @await Html.PartialAsync("_BottomBarPartialView",pager)
+        </div>
+    </div>
+</div>

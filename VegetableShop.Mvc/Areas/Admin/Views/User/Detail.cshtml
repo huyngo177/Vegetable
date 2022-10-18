@@ -1,0 +1,40 @@
+﻿@model VegetableShop.Mvc.Models.User.UserViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped" style="margin-top: 25px;">
+            <tr>
+                <th scope="row">Id:</th>
+                <th>@Html.DisplayFor(model => model.Id)</th>
+            </tr>
+            <tr>
+                <th scope="row">Username:</th>
+                <th>@Html.DisplayFor(model => model.UserName)</th>
+            </tr>
+            <tr>
+                <th scope="row">@Html.DisplayNameFor(model => model.Email):</th>
+                <th>@Html.DisplayFor(model => model.Email)</th>
+            </tr>
+            <tr>
+                <th scope="row">Firstname:</th>
+                <th>@Html.DisplayFor(model => model.FirstName)</th>
+            </tr>
+            <tr>
+                <th scope="row">Lastname:</th>
+                <th>@Html.DisplayFor(model => model.LastName)</th>
+            </tr>
+            <tr>
+                <th scope="row">Phone number:</th>
+                <th>@Html.DisplayFor(model => model.PhoneNumber)</th>
+            </tr>
+            <tr>
+                <th scope="row">@Html.DisplayNameFor(model => model.Address):</th>
+                <th>@Html.DisplayFor(model => model.Address)</th>
+            </tr>
+        </table>
+    </div>
+</div>
